@@ -23,3 +23,46 @@ export class UserSchema extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 }
+
+export class PersonajeSchema extends BaseModel {
+  //static $columns = ['id', 'name', 'maxKi', 'race', 'gender', 'description', 'image', 'planetID'] as const
+  static $columns = ['id', 'name', 'maxKi', 'race', 'gender', 'description', 'image'] as const
+  $columns = UserSchema.$columns
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare name: string
+  @column()
+  declare maxKi: string
+  @column()
+  declare race: string
+  @column()
+  declare gender: string
+  @column()
+  declare description: string
+  @column()
+  declare image: string
+  //@column()
+  //declare planetID: string
+}
+
+/* {
+  id: 1
+  name: "Goku"
+  ki: "60.000.000"
+  maxKi: "90 Septillion"
+  race: "Saiyan"
+  gender: "Male"
+  description: "El protagonista de la serie, conocido por su gran ..."
+  image: "https://dragonball-api.com/characters/goku_normal...."
+  affiliation: "Z Fighter"
+  deletedAt: null
+  originPlanet: {
+  id: 3
+  name: "Vegeta"
+  isDestroyed: true
+  description: "El planeta Vegeta, conocido como planeta Plant ant..."
+  image: "https://dragonball-api.com/planetas/Planeta_Vegeta..."
+  deletedAt: null
+  }
+ */
