@@ -12,11 +12,25 @@ import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
 
 router.on('/').render('pages/home').as('home') // resources/view/page/home.edge
-router.on('/personajes').render('pages/personajes/home').as('personajes')
+/* router.on('/personajes').render('pages/personajes/home').as('personajes') */
 //router.get('personajes', [controllers.GetPersonajes, 'index'])
-router.on('/planetas').render('pages/planetas/home').as('planetas')
-router.on('/personajes/detalles').render('pages/personajes/detalle').as('personajesDetalle')
-router.on('/planetas/detalles').render('pages/planetas/detalle').as('planetaDetalle')
+/* router.on('/planetas').render('pages/planetas/home').as('planetas') */
+/* router.on('/personajes/detalles').render('pages/personajes/detalle').as('personajesDetalle') */
+/* router.on('/planetas/detalles').render('pages/planetas/detalle').as('planetaDetalle') */
+
+// Pasarle valores a la vista de personajes
+/* router.get('/personajes', async (ctx) => {
+  const personajes = [controllers.GetPersonajes, 'index']
+  return ctx.view.render('pages/personajes/home', { personajes })
+}) */
+
+/* Este en realidad no es un controlador de por sí, sinó una petición a una API externa */
+router.get('/personajes', [controllers.GetPersonajes, 'index'])
+
+router.get('/personajes/:id', [controllers.Personajes, 'show'])
+
+router.get('/planetas', [controllers.GetPlanetas, 'index'])
+router.get('/planetas/:id', [controllers.GetPlanetas, 'show'])
 
 // Indicar router.metodo(url, [controlador.Clase, metodoAInvocar])
 router

@@ -5,10 +5,10 @@ type ParamValue = string | number | bigint | boolean
 export type ScannedRoutes = {
   ALL: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
-    'personajesDetalle': { paramsTuple?: []; params?: {} }
-    'planetaDetalle': { paramsTuple?: []; params?: {} }
+    'get_personajes.index': { paramsTuple?: []; params?: {} }
+    'personajes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'get_planetas.index': { paramsTuple?: []; params?: {} }
+    'get_planetas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'new_account.store': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
@@ -17,19 +17,19 @@ export type ScannedRoutes = {
   }
   GET: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
-    'personajesDetalle': { paramsTuple?: []; params?: {} }
-    'planetaDetalle': { paramsTuple?: []; params?: {} }
+    'get_personajes.index': { paramsTuple?: []; params?: {} }
+    'personajes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'get_planetas.index': { paramsTuple?: []; params?: {} }
+    'get_planetas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
-    'personajesDetalle': { paramsTuple?: []; params?: {} }
-    'planetaDetalle': { paramsTuple?: []; params?: {} }
+    'get_personajes.index': { paramsTuple?: []; params?: {} }
+    'personajes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'get_planetas.index': { paramsTuple?: []; params?: {} }
+    'get_planetas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
   }

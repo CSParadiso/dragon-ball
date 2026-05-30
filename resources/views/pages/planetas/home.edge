@@ -1,5 +1,17 @@
 @layout()
-  <div class="hero">
+  {{-- <div class="hero"> --}}
     <h1>Listado de Planetas</h1>
-  </div>
+      
+  {{-- {{ inspect(planetas) }} --}}
+
+  {{-- Declaracion de variables en el template --}}
+  {{-- @let(nombreApp = 'Dragon Ball') --}}
+
+    
+    @component('components/planeta/grid_cards', { planetas })
+      
+    @end('components/planeta/grid_cards')
+
+  {{-- </div> --}}
+@end
 @end

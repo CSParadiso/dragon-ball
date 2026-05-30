@@ -1,0 +1,21 @@
+<div class="cards-container">
+  @each(planeta in planetas)
+    <a
+      href="/planetas/{{ planeta.id }}"
+      class="card-link"
+    >
+      <article class="card">
+        <img
+          src="{{ planeta.image }}"
+          alt="{{ planeta.name }}"
+          class="card-image"
+        />
+
+        <div class="card-content">
+          <h2>{{ planeta.name }}</h2>
+
+        </div>
+      </article>
+    </a>
+  @end
+</div>
