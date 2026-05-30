@@ -241,7 +241,7 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  background-color: #00a63e;
+  /* background-color: #00a63e; */
   padding: 2.5%;
 }
 

@@ -5,6 +5,7 @@
 
 export const controllers = {
   GetPersonajes: () => import('#controllers/get_personajes'),
+  GetPlanetas: () => import('#controllers/get_planetas'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Personajes: () => import('#controllers/personajes_controller'),
   Session: () => import('#controllers/session_controller'),
