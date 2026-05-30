@@ -4,7 +4,10 @@
  */
 
 export const controllers = {
+  ControladorPruebas: () => import('#controllers/controlador_pruebas_controller'),
+  GetPersonajesControllers: () => import('#controllers/get_personajes_controllers'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Session: () => import('#controllers/session_controller'),
-  GetPersonajes: () => import('#controllers/get_personajes'),
+  GetPersonajesDetalles: () => import('#controllers/GetPersonajesDetallesController'),
+  GetpersonajesdetallescontrollerCopy: () => import('#controllers/GetPersonajesDetallesController copy'),
 }

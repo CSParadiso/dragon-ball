@@ -1,5 +1,7 @@
-@layout()
-  <div class="hero">
-    <h1>Detalle de Personaje</h1>
-  </div>
-@end
+@link({ route: 'home'})
+  <h3>Inicio</h2>
+@end 
+<h2>Nombre: {{data.name}}</h1>
+<h2>Raza: {{data.race}}</h1>
+<h2>Cantidad de ki: {{data.ki}}</h1>
+<h2>Descripcion:{{data.description}}</h1>

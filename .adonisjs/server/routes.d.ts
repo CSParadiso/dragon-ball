@@ -5,10 +5,7 @@ type ParamValue = string | number | bigint | boolean
 export type ScannedRoutes = {
   ALL: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
-    'personajesDetalle': { paramsTuple?: []; params?: {} }
-    'planetaDetalle': { paramsTuple?: []; params?: {} }
+    'personajes_detalle': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'new_account.store': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
@@ -17,19 +14,13 @@ export type ScannedRoutes = {
   }
   GET: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
-    'personajesDetalle': { paramsTuple?: []; params?: {} }
-    'planetaDetalle': { paramsTuple?: []; params?: {} }
+    'personajes_detalle': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
-    'personajesDetalle': { paramsTuple?: []; params?: {} }
-    'planetaDetalle': { paramsTuple?: []; params?: {} }
+    'personajes_detalle': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
   }

@@ -11,12 +11,11 @@ import { middleware } from '#start/kernel'
 import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
 
-router.on('/').render('pages/home').as('home') // resources/view/page/home.edge
-router.on('/personajes').render('pages/personajes/home').as('personajes')
-//router.get('personajes', [controllers.GetPersonajes, 'index'])
-router.on('/planetas').render('pages/planetas/home').as('planetas')
-router.on('/personajes/detalles').render('pages/personajes/detalle').as('personajesDetalle')
-router.on('/planetas/detalles').render('pages/planetas/detalle').as('planetaDetalle')
+router.get('/', [controllers.GetPersonajesControllers, 'index']).as('home')
+//router.on('/').render('pages/home').as('home')
+router
+  .get('/personajes_detalle/:id', [controllers.GetPersonajesDetalles, 'index'])
+  .as('personajes_detalle')
 
 // Indicar router.metodo(url, [controlador.Clase, metodoAInvocar])
 router

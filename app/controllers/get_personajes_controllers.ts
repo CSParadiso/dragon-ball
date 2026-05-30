@@ -2,7 +2,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class ExternalApiController {
-  async index({ response }: HttpContext) {
+  async index({ response, view }: HttpContext) {
     try {
       // Realizamos la petición a la API externa
       const res = await fetch('https://dragonball-api.com/api/characters', {
@@ -22,7 +22,10 @@ export default class ExternalApiController {
       const data = await res.json()
 
       // Retornamos los datos obtenidos
-      return response.ok(data)
+      //return response.ok(data)
+      return view.render('pages/personajes/home', {
+        personajes: data.items,
+      })
     } catch (error) {
       return response.internalServerError({
         message: 'Error en la comunicación',
