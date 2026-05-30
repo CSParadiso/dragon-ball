@@ -10,8 +10,13 @@
 import { middleware } from '#start/kernel'
 import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
+// start/routes.ts
 
-router.on('/').render('pages/home').as('home') // resources/view/page/home.edge
+const HomeController = () => import('#controllers/home_characters_controller')
+
+// Ruta para la pantalla de Home con Characters
+router.get('/home', [HomeController, 'index'])
+//router.on('/').render('pages/home').as('home') // resources/view/page/home.edge
 router.on('/personajes').render('pages/personajes/home').as('personajes')
 //router.get('personajes', [controllers.GetPersonajes, 'index'])
 router.on('/planetas').render('pages/planetas/home').as('planetas')

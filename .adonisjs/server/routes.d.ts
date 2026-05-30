@@ -4,7 +4,7 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
-    'home': { paramsTuple?: []; params?: {} }
+    'home.index': { paramsTuple?: []; params?: {} }
     'personajes': { paramsTuple?: []; params?: {} }
     'planetas': { paramsTuple?: []; params?: {} }
     'personajesDetalle': { paramsTuple?: []; params?: {} }
@@ -16,7 +16,7 @@ export type ScannedRoutes = {
     'session.destroy': { paramsTuple?: []; params?: {} }
   }
   GET: {
-    'home': { paramsTuple?: []; params?: {} }
+    'home.index': { paramsTuple?: []; params?: {} }
     'personajes': { paramsTuple?: []; params?: {} }
     'planetas': { paramsTuple?: []; params?: {} }
     'personajesDetalle': { paramsTuple?: []; params?: {} }
@@ -25,7 +25,7 @@ export type ScannedRoutes = {
     'session.create': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
-    'home': { paramsTuple?: []; params?: {} }
+    'home.index': { paramsTuple?: []; params?: {} }
     'personajes': { paramsTuple?: []; params?: {} }
     'planetas': { paramsTuple?: []; params?: {} }
     'personajesDetalle': { paramsTuple?: []; params?: {} }
