@@ -1,5 +1,51 @@
 @layout()
-  <div class="hero">
-    <h1>Detalle de Personaje</h1>
+
+<div class="character-detail">
+
+  <div class="character-header">
+    <img
+      src="{{ personaje.image }}"
+      alt="{{ personaje.name }}"
+      class="character-image"
+    />
+
+    <div class="character-info">
+      <h1>{{ personaje.name }}</h1>
+
+      <div class="stats">
+        <p><strong>Raza:</strong> {{ personaje.race }}</p>
+        <p><strong>Género:</strong> {{ personaje.gender }}</p>
+        <p><strong>Ki:</strong> {{ personaje.ki }}</p>
+        <p><strong>Max Ki:</strong> {{ personaje.maxKi }}</p>
+        <p><strong>Afiliación:</strong> {{ personaje.affiliation }}</p>
+      </div>
+
+      <div class="actions">
+        <a
+          href="/personajes/{{ personaje.id }}/transformaciones"
+          class="btn btn-primary"
+        >
+          Transformaciones
+        </a>
+
+        <a
+          href="/planetas/{{ personaje.originPlanet.id }}"
+          class="btn btn-secondary"
+        >
+          Planeta de Origen
+        </a>
+      </div>
+    </div>
   </div>
+
+  <section class="description">
+    <h2>Descripción</h2>
+
+    <p>
+      {{ personaje.description }}
+    </p>
+  </section>
+
+</div>
+
 @end
