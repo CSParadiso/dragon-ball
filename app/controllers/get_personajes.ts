@@ -1,32 +1,49 @@
 // app/controllers/external_api_controller.ts
 import type { HttpContext } from '@adonisjs/core/http'
 
-export default class ExternalApiController {
-  async index({ response }: HttpContext) {
-    try {
-      // Realizamos la petición a la API externa
-      const res = await fetch('https://dragonball-api.com/api/characters', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          // 'Authorization': 'Bearer TU_TOKEN' // Si necesitas autenticación
-        },
-      })
+interface Character {
+  id: number
+  name: string
+  ki: string
+  maxKi: string
+  race: string
+  gender: string
+  description: string
+  image: string
+  affiliation: string
+}
 
-      // Verificamos si la respuesta fue exitosa
+interface DragonBallApiResponse {
+  items: Character[]
+  meta: {
+    totalItems: number
+    itemCount: number
+    itemsPerPage: number
+    totalPages: number
+    currentPage: number
+  }
+}
+
+export default class ExternalApiController {
+  async index({ view }: HttpContext) {
+    try {
+      const res = await fetch('https://dragonball-api.com/api/characters')
+
       if (!res.ok) {
-        return response.status(res.status).send({ error: 'Error al conectar con la API' })
+        throw new Error('Error al obtener los personajes')
       }
 
-      // Parseamos el JSON
-      const data = await res.json()
+      const data = (await res.json()) as DragonBallApiResponse
 
-      // Retornamos los datos obtenidos
-      return response.ok(data)
+      return view.render('pages/personajes/home', {
+        personajes: data.items,
+      })
     } catch (error) {
-      return response.internalServerError({
-        message: 'Error en la comunicación',
-        error: error.message,
+      console.error(error)
+
+      return view.render('pages/personajes/home', {
+        personajes: [],
+        error: 'No se pudieron cargar los personajes',
       })
     }
   }

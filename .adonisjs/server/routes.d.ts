@@ -5,8 +5,9 @@ type ParamValue = string | number | bigint | boolean
 export type ScannedRoutes = {
   ALL: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
+    'get_personajes.index': { paramsTuple?: []; params?: {} }
+    'get_personaje.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'plantas': { paramsTuple?: []; params?: {} }
     'personajesDetalle': { paramsTuple?: []; params?: {} }
     'planetaDetalle': { paramsTuple?: []; params?: {} }
     'new_account.create': { paramsTuple?: []; params?: {} }
@@ -17,8 +18,9 @@ export type ScannedRoutes = {
   }
   GET: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
+    'get_personajes.index': { paramsTuple?: []; params?: {} }
+    'get_personaje.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'plantas': { paramsTuple?: []; params?: {} }
     'personajesDetalle': { paramsTuple?: []; params?: {} }
     'planetaDetalle': { paramsTuple?: []; params?: {} }
     'new_account.create': { paramsTuple?: []; params?: {} }
@@ -26,8 +28,9 @@ export type ScannedRoutes = {
   }
   HEAD: {
     'home': { paramsTuple?: []; params?: {} }
-    'personajes': { paramsTuple?: []; params?: {} }
-    'planetas': { paramsTuple?: []; params?: {} }
+    'get_personajes.index': { paramsTuple?: []; params?: {} }
+    'get_personaje.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'plantas': { paramsTuple?: []; params?: {} }
     'personajesDetalle': { paramsTuple?: []; params?: {} }
     'planetaDetalle': { paramsTuple?: []; params?: {} }
     'new_account.create': { paramsTuple?: []; params?: {} }

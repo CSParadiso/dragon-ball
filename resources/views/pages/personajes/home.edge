@@ -1,8 +1,27 @@
 @layout()
-  <div class="hero">
-    <h1>Listado de Personajes</h1>
-    {{-- <div>@if(true) 
-      @!link({ route: 'get_personajes.index', text: 'Todos los personajes' })
-    @end</div> --}}
-  </div>
+<h1>Personajes de Dragon Ball</h1>
+
+<div class="cards">
+
+  @each(personaje in personajes)
+
+    <a href="/personajes/{{ personaje.id }}">
+      
+      <img
+        src="{{ personaje.image }}"
+        alt="{{ personaje.name }}"
+        width="180"
+      >
+
+      <h3>{{ personaje.name }}</h3>
+
+      <p>Raza: {{ personaje.race }}</p>
+
+      <p>Ki: {{ personaje.ki }}</p>
+
+    </a>
+
+  @endeach
+
+</div>
 @end

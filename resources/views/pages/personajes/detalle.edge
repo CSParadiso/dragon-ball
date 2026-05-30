@@ -1,5 +1,33 @@
 @layout()
-  <div class="hero">
-    <h1>Detalle de Personaje</h1>
+  @if(error)
+
+  <h1>{{ error }}</h1>
+
+@else
+
+  <div class="character-detail">
+
+    <img
+      src="{{ personaje.image }}"
+      alt="{{ personaje.name }}"
+      width="300"
+    >
+
+    <h1>{{ personaje.name }}</h1>
+
+    <p><strong>Raza:</strong> {{ personaje.race }}</p>
+
+    <p><strong>Género:</strong> {{ personaje.gender }}</p>
+
+    <p><strong>Ki:</strong> {{ personaje.ki }}</p>
+
+    <p><strong>Ki Máximo:</strong> {{ personaje.maxKi }}</p>
+
+    <p><strong>Afiliación:</strong> {{ personaje.affiliation }}</p>
+
+    <p>{{ personaje.description }}</p>
+
   </div>
+
+@endif
 @end

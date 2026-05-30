@@ -4,7 +4,8 @@
  */
 
 export const controllers = {
+  GetPersonaje: () => import('#controllers/get_personaje'),
+  GetPersonajes: () => import('#controllers/get_personajes'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Session: () => import('#controllers/session_controller'),
-  GetPersonajes: () => import('#controllers/get_personajes'),
 }

@@ -12,9 +12,10 @@ import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
 
 router.on('/').render('pages/home').as('home') // resources/view/page/home.edge
-router.on('/personajes').render('pages/personajes/home').as('personajes')
-//router.get('personajes', [controllers.GetPersonajes, 'index'])
-router.on('/planetas').render('pages/planetas/home').as('planetas')
+//router.on('/personajes').render('pages/personajes/home').as('personajes')
+router.get('personajes', [controllers.GetPersonajes, 'index']) //todos los personajes
+router.get('/personajes/:id', [controllers.GetPersonaje, 'show']) //un personaje
+router.on('/planetas').render('pages/planetas/home').as('plantas')
 router.on('/personajes/detalles').render('pages/personajes/detalle').as('personajesDetalle')
 router.on('/planetas/detalles').render('pages/planetas/detalle').as('planetaDetalle')
 
