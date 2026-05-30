@@ -6,8 +6,8 @@
 export const controllers = {
   ControladorPruebas: () => import('#controllers/controlador_pruebas_controller'),
   GetPersonajesControllers: () => import('#controllers/get_personajes_controllers'),
+  GetpersonajesdetallescontrollerCopy: () => import('#controllers/GetPersonajesDetallesController copy'),
+  GetPersonajesDetalles: () => import('#controllers/GetPersonajesDetallesController'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Session: () => import('#controllers/session_controller'),
-  GetPersonajesDetalles: () => import('#controllers/GetPersonajesDetallesController'),
-  GetpersonajesdetallescontrollerCopy: () => import('#controllers/GetPersonajesDetallesController copy'),
 }
