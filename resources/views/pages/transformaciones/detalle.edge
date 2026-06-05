@@ -35,23 +35,28 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    align-items: stretch;
   }
 
-  /* Overrides "scopeados" dentro de la grilla:
-     así NO se rompe el detalle del personaje que ya tenés */
+  .transformations-grid .character-detail {
+    height: 100%;
+  }
+
   .transformations-grid .character-header {
-    flex-direction: column;   /* imagen arriba, info abajo */
+    flex-direction: column;
     align-items: center;
     text-align: center;
+    height: 100%;
   }
 
   .transformations-grid .character-image {
-    width: 150px;
-    height: auto;
+    width: 180px;
+    height: 200px;           
+    object-fit: contain;     
   }
 
   .transformations-grid .character-info h1 {
-    font-size: 1.25rem;       /* el h1 de la card no queda gigante */
+    font-size: 1.25rem;
   }
 </style>
 
