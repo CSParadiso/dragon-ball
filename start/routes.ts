@@ -28,6 +28,7 @@ router.on('/').render('pages/home').as('home') // resources/view/page/home.edge
 router.get('/personajes', [controllers.GetPersonajes, 'index'])
 
 router.get('/personajes/:id', [controllers.Personajes, 'show'])
+router.get('/personajes/:id/transformaciones', [controllers.Transformaciones, 'transformations'])
 
 router.get('/planetas', [controllers.GetPlanetas, 'index'])
 router.get('/planetas/:id', [controllers.GetPlanetas, 'show'])

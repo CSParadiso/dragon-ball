@@ -1,0 +1,58 @@
+@layout()
+
+<section class="transformations">
+  <h2>Transformaciones</h2>
+
+  @if(character.transformations.length)
+    <div class="transformations-grid">
+      @each(transformation in character.transformations)
+        <div class="character-detail">
+          <div class="character-header">
+            <img
+              src="{{ transformation.image }}"
+              alt="{{ transformation.name }}"
+              class="character-image"
+            />
+
+            <div class="character-info">
+              <h1>{{ transformation.name }}</h1>
+
+              <div class="stats">
+                <p><strong>Ki:</strong> {{ transformation.ki }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      @end
+    </div>
+  @else
+    <p>Este personaje no tiene transformaciones registradas.</p>
+  @end
+</section>
+
+<style>
+  .transformations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Overrides "scopeados" dentro de la grilla:
+     así NO se rompe el detalle del personaje que ya tenés */
+  .transformations-grid .character-header {
+    flex-direction: column;   /* imagen arriba, info abajo */
+    align-items: center;
+    text-align: center;
+  }
+
+  .transformations-grid .character-image {
+    width: 150px;
+    height: auto;
+  }
+
+  .transformations-grid .character-info h1 {
+    font-size: 1.25rem;       /* el h1 de la card no queda gigante */
+  }
+</style>
+
+@end
