@@ -11,12 +11,22 @@
     />
     <div class="planet-banner-content">
       <h1>{{ planeta.name }}</h1>
-      <div class="planet-banner-badges">
-        @if(planeta.isDestroyed)
-          <span class="pill-dark pill-destroyed">💥 Destruido</span>
-        @else
-          <span class="pill-dark">Existente</span>
-        @end
+
+      <div class="stats">
+        {{-- <p><strong>Raza:</strong> {{ planeta.race }}</p>
+        <p><strong>Género:</strong> {{ planeta.gender }}</p>
+        <p><strong>Ki:</strong> {{ planeta.ki }}</p>
+        <p><strong>Max Ki:</strong> {{ planeta.maxKi }}</p>
+        <p><strong>Afiliación:</strong> {{ planeta.affiliation }}</p> --}}
+      </div>
+
+      <div class="actions">
+        <a
+          href="/planetas/{{ planeta.id }}/personajes"
+          class="btn btn-primary"
+        >
+          Personajes
+        </a>
       </div>
     </div>
   </div>

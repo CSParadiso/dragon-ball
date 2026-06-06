@@ -7,8 +7,10 @@ export type ScannedRoutes = {
     'home': { paramsTuple?: []; params?: {} }
     'get_personajes.index': { paramsTuple?: []; params?: {} }
     'personajes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'transformaciones.transformations': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'get_planetas.index': { paramsTuple?: []; params?: {} }
     'get_planetas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'planetasPersonajes': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'new_account.store': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
@@ -19,8 +21,10 @@ export type ScannedRoutes = {
     'home': { paramsTuple?: []; params?: {} }
     'get_personajes.index': { paramsTuple?: []; params?: {} }
     'personajes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'transformaciones.transformations': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'get_planetas.index': { paramsTuple?: []; params?: {} }
     'get_planetas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'planetasPersonajes': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
   }
@@ -28,8 +32,10 @@ export type ScannedRoutes = {
     'home': { paramsTuple?: []; params?: {} }
     'get_personajes.index': { paramsTuple?: []; params?: {} }
     'personajes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'transformaciones.transformations': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'get_planetas.index': { paramsTuple?: []; params?: {} }
     'get_planetas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'planetasPersonajes': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
   }

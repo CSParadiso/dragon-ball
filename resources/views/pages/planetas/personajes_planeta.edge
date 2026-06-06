@@ -1,0 +1,26 @@
+@layout()
+  {{-- <div class="hero"> --}}
+    <h1>Listado de Personajes del planeta {{ plantea_name }}</h1>
+    {{-- <div>@if(true) 
+      @!link({ route: 'get_personajes.index', text: 'Todos los personajes' })
+    @end</div> --}}
+
+  {{-- Como un console log en pantalla --}}  
+  {{-- {{ inspect(personajes) }} --}}
+
+  {{-- Declaracion de variables en el template --}}
+  {{-- @let(nombreApp = 'Dragon Ball') --}}
+
+    {{-- {{ nombreApp }} 
+    @each(personaje in personajes)
+    <h2>{{ personaje.name }}</h2>
+    <img src="{{ personaje.image }}" />
+    @end --}}
+
+    @component('components/personaje/grid_cards', { personajes })
+      
+    @end('components/personaje/grid_cards')
+
+  {{-- </div> --}}
+@end
+@end

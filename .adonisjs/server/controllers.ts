@@ -5,8 +5,10 @@
 
 export const controllers = {
   GetPersonajes: () => import('#controllers/get_personajes'),
+  GetPlanetasPersonajes: () => import('#controllers/get_planetas_personajes'),
   GetPlanetas: () => import('#controllers/get_planetas'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Personajes: () => import('#controllers/personajes_controller'),
   Session: () => import('#controllers/session_controller'),
+  Transformaciones: () => import('#controllers/transformaciones_controller'),
 }
