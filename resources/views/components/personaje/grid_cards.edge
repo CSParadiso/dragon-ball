@@ -1,41 +1,31 @@
 <div class="cards-container">
   @each(personaje in personajes)
-    <a
-      href="/personajes/{{ personaje.id }}"
-      class="card-link"
-    >
-      <article class="card">
-        <img
-          src="{{ personaje.image }}"
-          alt="{{ personaje.name }}"
-          class="card-image"
-        />
+    <a href="/personajes/{{ personaje.id }}" class="card-link">
+      <div class="card">
+
+        <div class="card-image-wrapper">
+          <img
+            src="{{ personaje.image }}"
+            alt="{{ personaje.name }}"
+            class="card-image"
+          />
+        </div>
 
         <div class="card-content">
           <h2>{{ personaje.name }}</h2>
 
-          <p>
-            <strong>Raza:</strong>
-            {{ personaje.race }}
-          </p>
+          <div class="card-badges">
+            <span class="badge badge-{{ personaje.race | lower }}">{{ personaje.race }}</span>
+            <span class="badge badge-affil">{{ personaje.affiliation }}</span>
+          </div>
 
-          <p>
-            <strong>Afiliación:</strong>
-            {{ personaje.affiliation }}
-          </p>
-
-          <p>
-            <strong>Ki:</strong>
-            {{ personaje.ki }}
-          </p>
-
-          <p>
-            <strong>maxKi:</strong>
-            {{ personaje.maxKi }}
-          </p>
-
+          <div class="ki-row">
+            <span class="ki-current">⚡ {{ personaje.ki }}</span>
+            <span class="ki-max">Max {{ personaje.maxKi }}</span>
+          </div>
         </div>
-      </article>
+
+      </div>
     </a>
   @end
 </div>
