@@ -31,6 +31,9 @@ router.get('/personajes/:id', [controllers.Personajes, 'show'])
 
 router.get('/planetas', [controllers.GetPlanetas, 'index'])
 router.get('/planetas/:id', [controllers.GetPlanetas, 'show'])
+router.get('/planetas/:id/personajes', [controllers.GetPlanetasPersonajes, 'show']).as('planetasPersonajes')
+
+
 
 // Indicar router.metodo(url, [controlador.Clase, metodoAInvocar])
 router
