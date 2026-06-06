@@ -1,51 +1,60 @@
-@layout()
+@layout('components/layout')
 
+@slot('main')
 <div class="character-detail">
-
   <div class="character-header">
-    <img
-      src="{{ personaje.image }}"
-      alt="{{ personaje.name }}"
-      class="character-image"
-    />
+
+    <div class="character-image-wrapper">
+      <img
+        src="{{ personaje.image }}"
+        alt="{{ personaje.name }}"
+        class="character-image"
+      />
+    </div>
 
     <div class="character-info">
-      <h1>{{ personaje.name }}</h1>
+      <div>
+        <h1>{{ personaje.name }}</h1>
+        <div class="card-badges">
+          <span class="badge badge-{{ personaje.race | lower }}">{{ personaje.race }}</span>
+          <span class="badge badge-affil">{{ personaje.affiliation }}</span>
+          <span class="badge badge-affil">{{ personaje.gender }}</span>
+        </div>
+      </div>
 
-      <div class="stats">
-        <p><strong>Raza:</strong> {{ personaje.race }}</p>
-        <p><strong>Género:</strong> {{ personaje.gender }}</p>
-        <p><strong>Ki:</strong> {{ personaje.ki }}</p>
-        <p><strong>Max Ki:</strong> {{ personaje.maxKi }}</p>
-        <p><strong>Afiliación:</strong> {{ personaje.affiliation }}</p>
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <div class="stat-tile-label">Raza</div>
+          <div class="stat-tile-val">{{ personaje.race }}</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-label">Afiliación</div>
+          <div class="stat-tile-val">{{ personaje.affiliation }}</div>
+        </div>
+        <div class="stat-tile stat-tile--ki">
+          <span class="ki-current">⚡ {{ personaje.ki }}</span>
+          <span class="ki-max">Max {{ personaje.maxKi }}</span>
+        </div>
       </div>
 
       <div class="actions">
-        <a
-          href="/personajes/{{ personaje.id }}/transformaciones"
-          class="btn btn-primary"
-        >
+        <a href="/personajes/{{ personaje.id }}/transformaciones" class="btn btn-primary">
           Transformaciones
         </a>
-
-        <a
-          href="/planetas/{{ personaje.originPlanet.id }}"
-          class="btn btn-secondary"
-        >
-          Planeta de Origen
-        </a>
+        @if(personaje.originPlanet)
+          <a href="/planetas/{{ personaje.originPlanet.id }}" class="btn btn-secondary">
+            Planeta de origen
+          </a>
+        @end
       </div>
     </div>
+
   </div>
 
   <section class="description">
     <h2>Descripción</h2>
-
-    <p>
-      {{ personaje.description }}
-    </p>
+    <p>{{ personaje.description }}</p>
   </section>
-
 </div>
-
+@end
 @end

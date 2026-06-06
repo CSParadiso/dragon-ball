@@ -1,15 +1,15 @@
-@layout()
+@layout('components/layout')
 
-<div class="character-detail">
+@slot('main')
+<div class="planet-detail">
 
-  <div class="character-header">
+  <div class="planet-banner">
     <img
       src="{{ planeta.image }}"
       alt="{{ planeta.name }}"
-      class="character-image"
+      class="planet-banner-img {{ planeta.isDestroyed ? 'planet-banner-img--destroyed' : '' }}"
     />
-
-    <div class="character-info">
+    <div class="planet-banner-content">
       <h1>{{ planeta.name }}</h1>
 
       <div class="stats">
@@ -31,14 +31,19 @@
     </div>
   </div>
 
-  <section class="description">
-    <h2>Descripción</h2>
+  <div class="planet-body">
+    <section class="description">
+      <h2>Descripción</h2>
+      <p>{{ planeta.description }}</p>
+    </section>
 
-    <p>
-      {{ planeta.description }}
-    </p>
-  </section>
+    <div class="actions">
+      <a href="/planetas/{{ planeta.id }}/personajes" class="btn btn-primary">
+        Personajes
+      </a>
+    </div>
+  </div>
 
 </div>
-
+@end
 @end

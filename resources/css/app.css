@@ -45,7 +45,10 @@ h6 {
   color: var(--gray-12);
 }
 
-/* Header */
+/* ==========================================
+   HEADER
+========================================== */
+
 header {
   max-width: 1440px;
   margin: auto;
@@ -71,7 +74,10 @@ header nav a.current {
   color: var(--gray-12);
 }
 
-/* Main */
+/* ==========================================
+   MAIN
+========================================== */
+
 main {
   max-width: 1440px;
   margin: 0 30px;
@@ -82,6 +88,10 @@ main {
   background: #fff;
   border: 1px solid var(--gray-3);
 }
+
+/* ==========================================
+   HERO
+========================================== */
 
 .hero {
   padding: 100px 50px;
@@ -103,6 +113,10 @@ main {
   display: inline-block;
   padding: 10px 16px;
 }
+
+/* ==========================================
+   HOME CARDS
+========================================== */
 
 .cards {
   display: grid;
@@ -130,7 +144,10 @@ main {
   color: var(--gray-6);
 }
 
-/* Form */
+/* ==========================================
+   FORM
+========================================== */
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -182,7 +199,6 @@ textarea[data-invalid='true'] + div {
   font-weight: 500;
   margin-top: 2px;
 }
-
 button {
   background: var(--gray-12);
   color: #fff;
@@ -194,7 +210,10 @@ button:hover {
   background: var(--gray-10);
 }
 
-/* Alerts */
+/* ==========================================
+   ALERTS
+========================================== */
+
 .alert {
   background: #fff;
   position: relative;
@@ -227,122 +246,426 @@ button:hover {
 }
 
 @keyframes scale-up {
-  from {
-    transform: scale(0.7);
-  }
-  to {
-    transform: scale(1);
-  }
+  from { transform: scale(0.7); }
+  to   { transform: scale(1); }
 }
 
-/* Listado perosnajes estilos */
+/* ==========================================
+   PERSONAJES - LIST
+========================================== */
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  /* background-color: #00a63e; */
-  padding: 2.5%;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 32px;
 }
 
 .card-link {
+  display: block;
   text-decoration: none;
-  color: inherit;
 }
 
 .card {
-  width: auto;
-  height: 100%;
-  background: white;
-  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--gray-3);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-  cursor: pointer;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.card-link:hover .card {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #BA7517;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.09);
+}
+
+.card-image-wrapper {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(circle, rgba(255, 152, 0, 0.08), transparent 70%), var(--gray-1);
+  border-bottom: 1px solid var(--gray-3);
+  overflow: hidden;
 }
 
 .card-image {
-  width: 100%;
-  height: 320px;
+  max-height: 220px;
+  width: auto;
   object-fit: contain;
-  background: #f5f5f5;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.06);
 }
 
 .card-content {
-  padding: 1rem;
+  padding: 18px;
 }
 
 .card-content h2 {
-  margin-bottom: 0.75rem;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-12);
+  margin-bottom: 10px;
 }
 
-/* Detalle perosnajes estilo */
+/* Badges */
+.card-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--gray-3);
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.badge-saiyan   { background: #FAEEDA; color: #4A1B0C; }
+.badge-namekian { background: #EAF3DE; color: #173404; }
+.badge-human    { background: #E6F1FB; color: #042C53; }
+.badge-android  { background: #EEEDFE; color: #26215C; }
+.badge-unknown  { background: var(--gray-3); color: var(--gray-8); }
+
+.badge-affil {
+  background: var(--gray-3);
+  color: var(--gray-8);
+  border: 1px solid var(--gray-4);
+}
+
+/* Ki row */
+.ki-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--gray-1);
+  border: 1px solid var(--gray-3);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.ki-current {
+  font-size: 13px;
+  font-weight: 700;
+  color: #854F0B;
+}
+
+.ki-max {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-7);
+}
+
+/* ==========================================
+   PLANETAS - DESTROYED STATE
+========================================== */
+
+.card--destroyed .card-image-wrapper {
+  position: relative;
+}
+
+.card--destroyed .card-image {
+  filter: grayscale(60%) brightness(0.8);
+}
+
+.card--destroyed {
+  border-color: var(--gray-4);
+}
+
+.card--destroyed:hover {
+  border-color: #A32D2D;
+  box-shadow: 0 14px 32px rgba(163, 45, 45, 0.12);
+}
+
+.destroyed-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #A32D2D;
+  color: #FCEBEB;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   PERSONAJE - DETAIL
+========================================== */
 
 .character-detail {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 48px;
 }
 
 .character-header {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.character-image-wrapper {
+  position: relative;
   display: flex;
-  gap: 3rem;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--gray-1);
+  border: 1px solid var(--gray-3);
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 420px;
 }
 
 .character-image {
-  width: 350px;
-  height: 500px;
+  width: 100%;
+  max-height: 400px;
   object-fit: contain;
+  object-position: bottom;
 }
 
 .character-info {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
 }
 
 .character-info h1 {
   font-size: 3rem;
-  margin-bottom: 1.5rem;
+  line-height: 1;
+  margin-bottom: 8px;
 }
 
-.stats p {
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+.character-info .card-badges {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Stat tiles */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat-tile {
+  background: var(--gray-1);
+  border: 1px solid var(--gray-3);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.stat-tile-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-6);
+  margin-bottom: 4px;
+}
+
+.stat-tile-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gray-12);
+}
+
+.stat-tile--ki {
+  grid-column: span 2;
+  background: #FAEEDA;
+  border-color: #EF9F27;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-tile--ki .ki-current {
+  font-size: 15px;
+  font-weight: 700;
+  color: #633806;
+}
+
+.stat-tile--ki .ki-max {
+  font-size: 14px;
+  font-weight: 500;
+  color: #854F0B;
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 12px;
 }
 
 .btn {
-  padding: 0.85rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border-radius: 10px;
   color: white;
   font-weight: 600;
+  font-size: 15px;
+  transition: opacity 0.2s ease;
 }
 
-.btn-primary {
-  background: #ff9800;
+.btn:hover {
+  opacity: 0.88;
 }
 
-.btn-secondary {
-  background: #2196f3;
-}
+.btn-primary   { background: #BA7517; }
+.btn-secondary { background: #185FA5; }
 
 .description {
-  margin-top: 3rem;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--gray-3);
 }
 
 .description h2 {
-  margin-bottom: 1rem;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.description p {
+  color: var(--gray-7);
+  line-height: 1.85;
+  max-width: 72ch;
+}
+
+/* ==========================================
+   PLANETA - DETAIL
+========================================== */
+
+.planet-detail {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.planet-banner {
+  position: relative;
+  height: 240px;
+  background: #0f0f1a;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 48px 28px;
+}
+
+.planet-banner-img {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.planet-banner-img--destroyed {
+  filter: grayscale(70%) brightness(0.6);
+}
+
+.planet-banner-content {
+  position: relative;
+  z-index: 1;
+}
+
+.planet-banner-content h1 {
+  font-size: 3rem;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.planet-banner-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.pill-dark {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.pill-destroyed {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.planet-body {
+  padding: 36px 48px 48px;
+}
+
+.planet-body .description {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.planet-body .actions {
+  margin-top: 28px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1024px) {
+  .character-header {
+    grid-template-columns: 1fr;
+  }
+  .character-image-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+    min-height: 300px;
+  }
+  .planet-banner-img {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .character-detail,
+  .planet-body {
+    padding: 24px;
+  }
+  .planet-banner {
+    padding: 0 24px 24px;
+  }
+  .character-info h1,
+  .planet-banner-content h1 {
+    font-size: 2.2rem;
+  }
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat-tile--ki {
+    grid-column: span 1;
+  }
+  .actions {
+    flex-direction: column;
+  }
 }
