@@ -3,34 +3,32 @@
 @slot('main')
 <div class="planet-detail">
 
+  {{-- The banner container --}}
   <div class="planet-banner">
+    
+    {{-- Conditionally adds the --destroyed class if true --}}
     <img
       src="{{ planeta.image }}"
       alt="{{ planeta.name }}"
       class="planet-banner-img {{ planeta.isDestroyed ? 'planet-banner-img--destroyed' : '' }}"
     />
+
     <div class="planet-banner-content">
       <h1>{{ planeta.name }}</h1>
-
-      <div class="stats">
-        {{-- <p><strong>Raza:</strong> {{ planeta.race }}</p>
-        <p><strong>Género:</strong> {{ planeta.gender }}</p>
-        <p><strong>Ki:</strong> {{ planeta.ki }}</p>
-        <p><strong>Max Ki:</strong> {{ planeta.maxKi }}</p>
-        <p><strong>Afiliación:</strong> {{ planeta.affiliation }}</p> --}}
-      </div>
-
-      <div class="actions">
-        <a
-          href="/planetas/{{ planeta.id }}/personajes"
-          class="btn btn-primary"
-        >
-          Personajes
-        </a>
+      
+      {{-- Your design accounts for a badges container under the H1 --}}
+      <div class="planet-banner-badges">
+        @if(planeta.isDestroyed)
+          <span class="pill-dark pill-destroyed">Destruído 💥</span>
+        @else
+          <span class="pill-dark">Activo</span>
+        @endif
       </div>
     </div>
+    
   </div>
 
+  {{-- The lower body --}}
   <div class="planet-body">
     <section class="description">
       <h2>Descripción</h2>
@@ -38,7 +36,8 @@
     </section>
 
     <div class="actions">
-      <a href="/planetas/{{ planeta.id }}/personajes" class="btn btn-primary">
+      {{-- Maps perfectly to your .btn and .btn-primary classes --}}
+      <a href="{{ route('planetasPersonajes', { id: planeta.id }) }}" class="btn btn-primary">
         Personajes
       </a>
     </div>

@@ -2,22 +2,27 @@
   @each(planeta in planetas)
   {{-- {{ inspect(planeta) }} --}}
     <a href="/planetas/{{ planeta.id }}" class="card-link">
-      <div class="card">
-
-      
-
+      {{-- 1. Dynamically add the .card--destroyed class if the planet is destroyed --}}
+      <div class="card {{ planeta.isDestroyed ? 'card--destroyed' : '' }}">
+        
         <div class="card-image-wrapper">
-          <img
-            src="{{ planeta.image }}"
-            alt="{{ planeta.name }}"
-            class="card-image"
+          <img 
+            src="{{ planeta.image }}" 
+            alt="{{ planeta.name }}" 
+            class="card-image" 
           />
+          
+          {{-- 2. Inject your absolute-positioned destroyed badge here --}}
+          @if(planeta.isDestroyed)
+            <span class="destroyed-badge">Destruido 💥</span>
+          @endif
         </div>
 
         <div class="card-content">
           <h2>{{ planeta.name }}</h2>
-
           
+          {{-- Any other planet stats you want to display --}}
+          <p class="card-p">{{ planeta.description.substring(0, 60) }}...</p>
         </div>
 
       </div>

@@ -145,6 +145,29 @@ main {
 }
 
 /* ==========================================
+   HOME NAV CARDS (2-card layout)
+========================================== */
+
+.cards--nav {
+  grid-template-columns: repeat(2, 1fr);
+  padding: 32px;
+  gap: 20px;
+  border-top: 1px solid var(--gray-3);
+}
+
+.cards__nav-link {
+  border: none;
+  padding: 0;
+}
+
+.cards__nav-link:first-child {
+  border: none;
+}
+
+.cards__nav-link:hover {
+  background: transparent;
+}
+/* ==========================================
    FORM
 ========================================== */
 

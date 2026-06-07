@@ -1,63 +1,26 @@
 @layout()
-
-<section class="transformations">
-  <h2>Transformaciones</h2>
-
-  @if(character.transformations.length)
-    <div class="transformations-grid">
-      @each(transformation in character.transformations)
-        <div class="character-detail">
-          <div class="character-header">
+  <div class="hero">
+    <h1>Transformaciones de {{ character.name }}</h1>
+  </div>
+  <div class="cards-container">
+    @each(transformation in character.transformations)
+      <div class="card-link">
+        <div class="card">
+          <div class="card-image-wrapper">
             <img
               src="{{ transformation.image }}"
               alt="{{ transformation.name }}"
-              class="character-image"
+              class="card-image"
             />
-
-            <div class="character-info">
-              <h1>{{ transformation.name }}</h1>
-
-              <div class="stats">
-                <p><strong>Ki:</strong> {{ transformation.ki }}</p>
-              </div>
+          </div>
+          <div class="card-content">
+            <h2>{{ transformation.name }}</h2>
+            <div class="ki-row">
+              <span class="ki-current">⚡ {{ transformation.ki }}</span>
             </div>
           </div>
         </div>
-      @end
-    </div>
-  @else
-    <p>Este personaje no tiene transformaciones registradas.</p>
-  @end
-</section>
-
-<style>
-  .transformations-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-
-  .transformations-grid .character-detail {
-    height: 100%;
-  }
-
-  .transformations-grid .character-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-  }
-
-  .transformations-grid .character-image {
-    width: 180px;
-    height: 200px;           
-    object-fit: contain;     
-  }
-
-  .transformations-grid .character-info h1 {
-    font-size: 1.25rem;
-  }
-</style>
-
+      </div>
+    @end
+  </div>
 @end

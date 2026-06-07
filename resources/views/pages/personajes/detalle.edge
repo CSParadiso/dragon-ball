@@ -38,9 +38,11 @@
       </div>
 
       <div class="actions">
+        @if(personaje.transformations.length)
         <a href="/personajes/{{ personaje.id }}/transformaciones" class="btn btn-primary">
           Transformaciones
         </a>
+        @end
         @if(personaje.originPlanet)
           <a href="/planetas/{{ personaje.originPlanet.id }}" class="btn btn-secondary">
             Planeta de origen
