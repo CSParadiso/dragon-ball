@@ -1,19 +1,22 @@
 <header>
   <div>
     <div>
-      <button onclick="
-        if (window.history.length > 1) {
-          window.history.back();
-        } else {
-          window.location.href = '/';
-        }
-      ">
-        ← Volver
-      </button>
+      @if(request.url() !== '/')
+        <button onclick="
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = '/';
+          }
+        ">
+          ← Volver
+        </button>
+      @end
     </div>
+
     <div>
       @link({ route: 'home', text: 'Home' })
-            <h2>Dragon Ball</h2>
+        <h2>Dragon Ball</h2>
       @end
     </div>
   </div>
